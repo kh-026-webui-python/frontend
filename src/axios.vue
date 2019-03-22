@@ -1,7 +1,6 @@
 <template>
 	<div id="axios">
-		<h1>Test Backend</h1>
-		{{  responseData  }}
+		Server status: {{  responseData  }}
 	</div>
 </template>
 
