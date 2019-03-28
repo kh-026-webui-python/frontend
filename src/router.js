@@ -5,9 +5,9 @@ import HomePage from './components/HomePage'
 import TheLogin from './components/TheLogin'
 import Registration from './components/Registration'
 
-Vue.use(Router);
 
-export const router = new Router({
+
+const router = new Router({
   mode: 'history',
   routes: [
     { path: '/', component: HomePage },
@@ -16,3 +16,6 @@ export const router = new Router({
     { path: '*', redirect: '/' }
   ]
 });
+
+Vue.use(Router);
+export default router;
