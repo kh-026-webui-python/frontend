@@ -1,13 +1,14 @@
 <template>
-    
+    <HealthCheckComponent/>
 </template>
 
 <script>
+    import HealthCheckComponent from '../../components/HealthCheck/HealthCheckComponent';
+
     export default {
-        name: "HealthCheck"
-    }
+        name: "HealthCheck",
+        components: {
+            HealthCheckComponent,
+        },
+    };
 </script>
-
-<style scoped>
-
-</style>
