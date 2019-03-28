@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import {router} from './router.js'
+import router from './router.js'
 import App from './App.vue'
 
 Vue.config.productionTip = false
+Vue.use(VueRouter)
 
 new Vue({
     router,

@@ -6,7 +6,6 @@
 			<router-link tag="li" active-class="active" to="/login"><a>Login</a></router-link>
 		</ul>
 	</div>
-</div>
 </template>
 
 <script>
