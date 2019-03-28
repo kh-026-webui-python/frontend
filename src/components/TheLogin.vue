@@ -15,10 +15,5 @@
 <script>
 export default {
   name: 'TheLogin',
-  methods: {
-    logIn() {
-      //this.$emit('TheLogin::loginResult', {loginResult: true})
-    }
-  }
 }
 </script>
