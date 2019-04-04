@@ -15,32 +15,12 @@
                 </div>
             </div>
         </div>
-        <div v-if="state === 'success'" class="alert alert-success">
+        <div v-if="state === 'response'"
+             class="alert"
+             v-bind:class="[ hasError ? 'alert-danger' : 'alert-success']"
+        >
             <p>
-                Success
-            </p>
-        </div>
-        <div v-if="state === 'fail'" class="alert alert-danger">
-            <p>
-                Request error:
-            </p>
-            <p>
-                {{ error }}
-            </p>
-        </div>
-        <div v-if="state === 'nofile'" class="alert alert-danger">
-            <p>
-                There is no file
-            </p>
-        </div>
-        <div v-if="state === 'bigfile'" class="alert alert-danger">
-            <p>
-                File is too big
-            </p>
-        </div>
-        <div v-if="state === 'badfiletype'" class="alert alert-danger">
-            <p>
-                Resume must be in pdf format.
+                Failure : {{ message }}
             </p>
         </div>
     </div>
@@ -55,7 +35,8 @@
             return {
                 file: '',
                 state: 'init',
-                error: '',
+                hasError: false,
+                message: '',
             }
         },
         methods: {
@@ -65,35 +46,16 @@
             },
             submitFile() {
                 const vm = this;
-
-                if (window.File && window.FileReader && window.FileList && window.Blob) {
-                    // Great success! All the File APIs are supported.
-                } else {
-                    alert('The File APIs are not fully supported in this browser.');
-                }
-
-                if (vm.file === '') { //check if user upload file in form
-                    vm.setCompState(vm, 'nofile');
-                } else //if (vm.file.size > 3145728) { //check if file has acceptable size (3mb)
-                    //vm.setCompState(vm, 'bigfile');
-                //} else
-                //if (vm.file.type !== 'application/pdf') { //check if file is pdf
-                //    vm.setCompState(vm, 'badfiletype');
-                //} else
-                {
-                    vm.sendRequest(); // if all okey send request
-                }
-
-
+                vm.sendRequest(); // if all okey send request
             },
             sendRequest() {
                 const vm = this;
 
                 let formData = new FormData();
-                formData.append('file', this.file);
+                formData.append('file', vm.file);
 
                 axios
-                    .post('http://127.0.0.1:8000/api/resume/',
+                    .post('http://127.0.0.1:8000/api/upload_resume/',
                         formData,
                         {
                             headers: {
@@ -101,25 +63,23 @@
                             }
                         }
                     )
-                    .then(function () {
-                        vm.setCompState(vm, 'success');
+                    .then(response => {
+                        vm.setCompState('Success', false)
                     })
                     .catch(error => {
-                        vm.error = error;
-                        vm.setCompState(vm, 'fail')
+                        // console.log(error.response.data.error)
+                        vm.setCompState(error.response.data.error, true)
                     });
             },
-            setCompState: function (vm, state) {
-                var states = ['fail', 'success', 'nofile', 'bigfile', 'badfiletype'];
-                //console.log(state in states);
-                if (states.includes(state)) {
-                    vm.state = state;
-                    setTimeout(function () {
-                        vm.state = 'init';
-                    }, 1000);
-                } else {
-                    throw new Error("State must be ['fail', 'success', 'nofile', 'bigfile', 'badfiletype']")
-                }
+            setCompState: function (message, hasError) {
+                const vm = this;
+                vm.hasError = hasError;
+                vm.message = message;
+                vm.state = 'response';
+
+                setTimeout(function () {
+                    vm.state = 'init'
+                }, 3000)
             }
         }
     }
