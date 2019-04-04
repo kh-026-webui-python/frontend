@@ -58,20 +58,21 @@
                 const vm = this;
 
                 axios
-                    .post('http://127.0.0.1:8000/api/resume',
+                    .post('http://127.0.0.1:8000/api/upload_resume/',
                         formData,
                         {
                             headers: {
                                 'Content-Type': 'multipart/form-data'
                             }
-                        }
+                        },
+                        {crossdomain: true}
                     )
                     .then(function () {
 
                     })
                     .catch(function (error) {
                         vm.state = 'fail';
-
+                        console.log(error.response.data);
                         setTimeout(function () {
                             vm.state = 'init'
                         }, 1000);
