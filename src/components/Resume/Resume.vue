@@ -61,7 +61,8 @@
                             headers: {
                                 'Content-Type': 'multipart/form-data'
                             }
-                        }
+                        },
+                        {crossdomain: true}
                     )
                     .then(response => {
                         vm.setCompState('Success', false)
