@@ -20,7 +20,7 @@
              v-bind:class="[ hasError ? 'alert-danger' : 'alert-success']"
         >
             <p>
-                Failure : {{ message }}
+                {{ message }}
             </p>
         </div>
     </div>
@@ -75,7 +75,7 @@
             setCompState: function (message, hasError) {
                 const vm = this;
                 vm.hasError = hasError;
-                vm.message = message;
+                vm.message = hasError ? 'Error : ' + message : 'Success';
                 vm.state = 'response';
 
                 setTimeout(function () {
