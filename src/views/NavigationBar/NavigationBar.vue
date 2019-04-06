@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <router-link class="nav-link" to="/resume">Resume</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" to="/file_registration">Registration by file</router-link>
+                </li>
             </ul>
             <HealthCheckComponent/>
         </div>
