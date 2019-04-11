@@ -15,7 +15,6 @@
                 <input type="text" name="password" value="">
                 <label class="" for="confirm">Password confirm:</label>
                 <input type="text" name="confirm" value="">
-
             </fieldset>
             <button type="submit">Sing up</button>
         </form>
@@ -23,7 +22,6 @@
 </template>
 
 <script>
-
     export default {
         name: 'Registration',
     }
@@ -44,7 +42,6 @@
         background: #f1f4f5;
         border-radius: 8px;
     }
-
 
     input[type="text"],
     input[type="email"],

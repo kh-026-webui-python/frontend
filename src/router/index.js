@@ -1,17 +1,17 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import HomePage from './components/HomePage'
-import TheLogin from './components/TheLogin'
-import Registration from './components/Registration'
-import Resume from './components/Resume/Resume'
-import FileRegistration from './components/FileRegistration/FileRegistration'
-import BootstrapVue from 'bootstrap-vue'
+import HomePage from '../views/HomePage'
+import TheLogin from '../views/LoginPage'
+import Registration from '../views/RegistrationPage'
+import Resume from '../views/ResumeUploadPage'
+import FileRegistration from '../views/ApplicantsRegistrationPage'
+import BootstrapVue from 'bootstrap-vue/src/index'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
-const router = new Router({
+const index = new Router({
     mode: 'history',
     routes: [
         {path: '/', component: HomePage},
@@ -25,4 +25,4 @@ const router = new Router({
 
 Vue.use(Router);
 Vue.use(BootstrapVue);
-export default router;
+export default index;
