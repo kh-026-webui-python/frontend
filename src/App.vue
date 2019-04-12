@@ -1,30 +1,47 @@
 <template>
     <div id="app">
-        <NavigationBar/>
+        <NavigationBar v-if="!isHomepage"/>
         <router-view></router-view>
+        <Footer v-if="!isHomepage"/>
     </div>
 </template>
 
 <script>
-    import NavigationBar from './views/NavigationBar/NavigationBar'
+    import NavigationBar from './components/NavigationBar/NavigationBar'
+    import Footer from './components/Footer/Footer'
 
     export default {
         name: 'app',
+        isHomepage: true,
         components: {
-            NavigationBar
+            NavigationBar,
+            Footer
         },
+
+        watch: {
+            '$route'(to, from) {
+                this.isHomepage = (this.$route.path === '/');
+            }
+        },
+        data() {
+            return {
+                isHomepage: true,
+            }
+        }
     }
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Nunito');
+    @import "assets/css/fonts.css";
 
+    html,
+    body {
+        height: 100%;
+    }
 
     #app {
-        font-family: 'Nunito', sans-serif;
-        margin: 0 0 20px 0;
+        font-family: MuseoSansBold;
         text-align: center;
-        color: #416eb7;
-        width: 100%;
+        height: inherit;
     }
 </style>

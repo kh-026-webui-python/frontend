@@ -1,0 +1,79 @@
+.alert-dismissible .close {
+    width: 5rem;
+}
+
+.custom-file {
+    margin: 1rem 0;
+}
+
+form {
+    background-color: white;
+    box-shadow: 0 0 3rem rgba(142, 81, 199, 0.09);
+    max-width: 38rem;
+    margin: 3rem auto;
+    padding: 2rem;
+}
+
+.btn-group {
+    margin-top: 1rem;
+}
+
+.content-allocation {
+    background-color: #FBFBFD;
+    width: 100%;
+}
+
+.main-container {
+    color: #463853;;
+}
+
+.main-container p {
+
+    color: #998DA0;;;
+}
+
+.registration-header {
+    max-width: 40rem;
+}
+
+.alert-dismissible .close {
+    width: 14px;
+}
+
+h1 {
+    font-family: GTEestiPro;
+    font-weight: bold;
+}
+
+p {
+    font-family: GTEestiPro;
+    font-weight: 300;
+}
+
+#submit-button {
+    width: 10rem;
+    border-color: #6e3e9b;
+    background-color: #6e3e9b;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+#reset-button {
+    color: #6e3e9b;
+    border-width: 0;
+    width: 10rem;
+}
+
+#submit-button:hover {
+    border-color: #673b91;
+    background-color: #673b91;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+
+}
+
+#reset-button:hover {
+    color: white;
+    border-color: #673b91;
+    background-color: #673b91;
+}
