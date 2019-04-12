@@ -1,7 +1,7 @@
 <template>
     <footer class="blog-footer">
-        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
-                href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p>Project for <a href="https://career.softserveinc.com/en-us/technology">SoftServe IT Academy</a>,
+            by <a href="https://github.com/kh-026-webui-python/">kh-026-webui-python</a>.</p>
         <p>
             <a href="#">Back to top</a>
         </p>
