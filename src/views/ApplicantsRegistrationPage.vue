@@ -2,17 +2,17 @@
     <div class="main-container">
         <div class="content-allocation">
             <div class="registration-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-                <h1 class="display-4">Pricing</h1>
-                <p class="lead">Quickly build an effective pricing table for your potential customers with this
-                    Bootstrap example. It's built with default Bootstrap components and utilities with little
-                    customization.</p>
+                <h1 class="display-4">Registration of applicants</h1>
+                <p class="lead">On this page you can download a .csv file with information about the applicants.
+                    The system will create profiles for applicants using this information.</p>
             </div>
         </div>
         <b-form @submit.prevent='upload' @reset="reset">
             <div class="alert alert-warning alert-dismissible" v-show="showWarningAlert">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close"
                    v-on:click="showWarningAlert=false">&times;</a>
-                <strong>Success!</strong> Indicates a successful or positive action.
+                The file must be in <strong>csv format</strong> and contain the following columns:
+                <i>first name, last name, english level, birth date, location</i>
             </div>
             <b-form-file
                     ref="fileinput"
@@ -31,7 +31,8 @@
             >
                 <a href="#" class="close" data-dismiss="alert" aria-label="close"
                    v-on:click="showFileAlert=false">&times;</a>
-                Selected file: <strong>{{ file ? file.name + file.type : '' }} </strong>
+                Selected file: <strong>{{ file ? file.name + '; Type:' + file.type : '' }}</strong>
+
             </div>
 
             <b-button-group>
@@ -100,10 +101,7 @@
             }
         }
     }
-
-
 </script>
 
 <style scoped src="../assets/css/applicants-registration.css">
-
 </style>

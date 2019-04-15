@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <NavigationBar v-if="!isHomepage"/>
+        <NavigationBar v-if="!isFullscreen"/>
         <router-view></router-view>
-        <Footer v-if="!isHomepage"/>
+        <Footer v-if="!isFullscreen"/>
     </div>
 </template>
 
@@ -12,7 +12,6 @@
 
     export default {
         name: 'app',
-        isHomepage: true,
         components: {
             NavigationBar,
             Footer
@@ -20,12 +19,12 @@
 
         watch: {
             '$route'(to, from) {
-                this.isHomepage = (this.$route.path === '/');
+                this.isFullscreen = (this.$route.path === '/' || this.$route.path === '/registration');
             }
         },
         data() {
             return {
-                isHomepage: true,
+                isFullscreen: true,
             }
         }
     }
