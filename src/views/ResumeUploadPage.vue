@@ -23,8 +23,7 @@
             </p>
         </div>
         <div v-if="state === 'fail'" class="alert alert-danger">
-            <p>
-                Failure
+            <p v-text="error_message">
             </p>
         </div>
     </div>
@@ -38,7 +37,8 @@
         data() {
             return {
                 file: '',
-                state: 'init'
+                state: 'init',
+                error_message:'Failure'
             }
         },
         methods: {
@@ -60,15 +60,20 @@
                             }
                         }
                     )
-                    .then(function () {
-
+                    .then(function (response) {
+                        if(response.status==201){
+                            vm.state='success'
+                        } else if(response.status==400){
+                            vm.state='fail',
+                                vm.error_message=response.data.get('error')
+                        }
                     })
                     .catch(function (error) {
                         vm.state = 'fail';
 
                         setTimeout(function () {
                             vm.state = 'init'
-                        }, 1000);
+                        }, 5000);
                     });
 
             }
