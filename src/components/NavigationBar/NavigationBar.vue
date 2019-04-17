@@ -15,7 +15,7 @@
                              v-b-tooltip.hover title="User">
                     </template>
                     <b-dropdown-item href="#">Profile</b-dropdown-item>
-                    <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+                    <b-dropdown-item href="#" v-on:click="logout">Sign Out</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-collapse>
@@ -25,10 +25,27 @@
 
 <script>
     import HealthCheckComponent from '../HealthCheck/HealthCheckComponent'
+    import {BASE} from "../../vue-axios/axios-conf";
 
     export default {
+
         name: "NavigationBar",
-        components: {HealthCheckComponent}
+        components: {HealthCheckComponent},
+        data(){
+
+        },
+        methods: {
+            logout() {
+                BASE.post('/api/auth/logout/').then(request => this.logoutSuccessful(request))
+            },
+            logoutSuccessful (req) {
+                if (req.data.detail !== "Successfully logged out.") {
+                    return
+                }
+                this.$router.replace(this.$route.query.redirect || '/');
+                localStorage.removeItem('token');
+            },
+        }
     }
 </script>
 

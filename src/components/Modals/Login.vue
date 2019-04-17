@@ -7,7 +7,7 @@
                         style="margin-bottom: 0; "
                 >
                     <label for="range-1">Username:</label>
-                    <b-form-input class="login-input" id="username-input" v-model="name"
+                    <b-form-input class="login-input" id="username-input" v-model="username"
                                   placeholder="Enter your username"></b-form-input>
                     <label for="range-1">Password:</label>
                     <b-form-input class="login-input" id="password-input" v-model="password"
@@ -17,6 +17,7 @@
             <p>New to SofTest?
                 <router-link to="/registration" v-b-tooltip title="Open registration">Sign Up</router-link>
             </p>
+            <div class="alert alert-danger" v-if="error">{{ error }}</div>
         </div>
         <div slot="modal-footer" class="login-footer">
             <b-button
@@ -24,7 +25,7 @@
                     variant="primary"
                     size="sm"
                     class="login-button"
-                    @click="show=false"
+                    @click="login"
             >
                 Log in
             </b-button>
@@ -43,15 +44,43 @@
 </template>
 
 <script>
+    import {BASE} from "../../vue-axios/axios-conf";
+
     export default {
         name: 'Login',
         data() {
-            return {}
+            return {
+                username: '',
+                password: '',
+                error: ''
+            }
         },
         methods: {
             hideModal() {
                 this.$refs['login-modal'].hide()
             },
+            login(){
+            BASE.post('/api/auth/login/', { username: this.username, password: this.password })
+                    .then(request => this.loginSuccessful(request))
+                    .catch(() => this.loginFailed())
+
+            },
+            loginSuccessful (req) {
+                if (!req.data.key) {
+                    this.loginFailed()
+                    return
+                }
+
+                localStorage.token = req.data.key
+                this.error = false
+
+                this.$router.replace(this.$route.query.redirect || '/resume')
+            },
+
+            loginFailed () {
+                this.error = 'Login failed!'
+                delete localStorage.token
+            }
         }
     }
 </script>

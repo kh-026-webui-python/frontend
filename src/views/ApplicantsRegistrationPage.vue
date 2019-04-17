@@ -51,7 +51,7 @@
 </template>
 
 <script>
-    import axios from 'axios/index'
+    import {BASE} from '../vue-axios/axios-conf'
 
     export default {
         name: "FileRegistration",
@@ -71,16 +71,10 @@
             upload: function () {
                 let formData = new FormData();
                 formData.append('csvfile', this.file, this.file.name);
-                let url = 'http://127.0.0.1:8000/api/upload/' + 'csvfile';
-                axios
-                    .post(url,
-                        formData,
-                        {
-                            headers: {
-                                'Content-Type': 'multipart/form-data'
-                            }
-                        }
-                    )
+                BASE.defaults.headers['Content-Type'] = 'multipart/form-data';
+                let url = '/api/upload/' + 'csvfile';
+                BASE
+                    .post(url, formData)
                     .then(response => (
 
                         this.setItems(response.data)
