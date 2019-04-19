@@ -2,7 +2,6 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import HomePage from '../views/HomePage'
-import TheLogin from '../views/LoginPage'
 import Registration from '../views/RegistrationPage'
 import Resume from '../views/ResumeUploadPage'
 import FileRegistration from '../views/ApplicantsRegistrationPage'
@@ -11,14 +10,21 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
+const authenticated = (to, from, next) => {
+    if (localStorage.token) {
+        next()
+        return
+    }
+    next('/')
+}
+
 const index = new Router({
     mode: 'history',
     routes: [
-        {path: '/', component: HomePage},
-        {path: '/login', component: TheLogin},
-        {path: '/registration', component: Registration},
-        {path: '/resume', component: Resume},
-        {path: '/file_registration', component: FileRegistration},
+        {path: '/', component: HomePage, },
+        {path: '/registration', component: Registration, },
+        {path: '/resume', component: Resume,  beforeEnter: authenticated,},
+        {path: '/file_registration', component: FileRegistration,  beforeEnter: authenticated,},
         {path: '*', redirect: '/'},
     ]
 });

@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import axios from 'axios/index'
+    import {BASE} from "../vue-axios/axios-conf";
 
     export default {
         name: "Resume",
@@ -50,16 +50,9 @@
                 formData.append('file', this.file);
 
                 const vm = this;
-
-                axios
-                    .post('http://127.0.0.1:8000/api/resume',
-                        formData,
-                        {
-                            headers: {
-                                'Content-Type': 'multipart/form-data'
-                            }
-                        }
-                    )
+                BASE.defaults.headers['Content-Type'] = 'multipart/form-data'
+                BASE
+                    .post('http://127.0.0.1:8000/api/upload_resume/', formData)
                     .then(function () {
 
                     })

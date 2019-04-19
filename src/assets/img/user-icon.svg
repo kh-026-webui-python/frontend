@@ -1,7 +1,7 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.01" fill-rule="evenodd" clip-rule="evenodd" d="M0 0V30H30V0H0Z" fill="#1C8FF8" fill-opacity="0.338428"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 26C21.0751 26 26 21.0751 26 15C26 8.92487 21.0751 4 15 4C8.92487 4 4 8.92487 4 15C4 21.0751 8.92487 26 15 26Z" stroke="#6C7B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 14C19.33 14 20 13.33 20 12.5C20 11.67 19.33 11 18.5 11C17.67 11 17 11.67 17 12.5C17 13.33 17.67 14 18.5 14Z" fill="#6C7B8A"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 14C12.33 14 13 13.33 13 12.5C13 11.67 12.33 11 11.5 11C10.67 11 10 11.67 10 12.5C10 13.33 10.67 14 11.5 14Z" fill="#6C7B8A"/>
-<path d="M10.5001 18.2958C11.4174 19.683 12.9865 20.605 14.7767 20.605C16.4588 20.605 17.9457 19.791 18.8801 18.5419" stroke="#6C7B8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="64" height="64" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path  opacity="0.01" fill-rule="evenodd" clip-rule="evenodd" d="M0 0V30H30V0H0Z" fill="rgb(153, 141, 160)" fill-opacity="0.338428"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15 26C21.0751 26 26 21.0751 26 15C26 8.92487 21.0751 4 15 4C8.92487 4 4 8.92487 4 15C4 21.0751 8.92487 26 15 26Z" stroke="rgb(153, 141, 160)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5 14C19.33 14 20 13.33 20 12.5C20 11.67 19.33 11 18.5 11C17.67 11 17 11.67 17 12.5C17 13.33 17.67 14 18.5 14Z" fill="rgb(153, 141, 160)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 14C12.33 14 13 13.33 13 12.5C13 11.67 12.33 11 11.5 11C10.67 11 10 11.67 10 12.5C10 13.33 10.67 14 11.5 14Z" fill="rgb(153, 141, 160)"/>
+<path d="M10.5001 18.2958C11.4174 19.683 12.9865 20.605 14.7767 20.605C16.4588 20.605 17.9457 19.791 18.8801 18.5419" stroke="rgb(153, 141, 160)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

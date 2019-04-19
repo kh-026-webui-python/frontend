@@ -1,5 +1,5 @@
 <template>
-    <footer class="blog-footer">
+    <footer class="page-footer">
         <p>Project for <a href="https://career.softserveinc.com/en-us/technology">SoftServe IT Academy</a>,
             by <a href="https://github.com/kh-026-webui-python/">kh-026-webui-python</a>.</p>
         <p>
@@ -15,7 +15,7 @@
 </script>
 
 <style scoped>
-    .blog-footer {
+    .page-footer {
         padding: 2.5rem 0;
         color: #999;
         text-align: center;
@@ -23,8 +23,7 @@
         border-top: .05rem solid #e5e5e5;
     }
 
-    .blog-footer p:last-child {
+    .page-footer p:last-child {
         margin-bottom: 0;
     }
-
 </style>
