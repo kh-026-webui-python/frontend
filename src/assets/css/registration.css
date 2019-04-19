@@ -1,0 +1,85 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+form {
+    background-color: white;
+    box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+    max-width: 38rem;
+    margin: 1rem auto;
+    padding: 2rem;
+    border-radius: 0.25rem;
+}
+
+label {
+    font-family: MuseoSansMedium;
+    color: #463853;
+}
+
+button {
+    margin: 0.5rem 0.5rem 0 1rem;
+    min-width: 6rem;
+    font-family: MuseoSansBold;
+}
+
+.context {
+    text-align: left;
+    width: 100%;
+    position: absolute;
+    z-index: 99;
+    top: 3rem;
+    font-family: MuseoSansRegular;
+}
+
+.context h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    font-family: MuseoSansBold;
+}
+
+.context h2 {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.brand-light {
+    font-family: MuseoSansRegular;
+    /*color: #463853;*/
+}
+
+.brand-medium {
+    font-family: MuseoSansBold;
+    /*color: #463853;*/
+}
+
+.row-signin {
+    display: flex;
+}
+
+#submit-btn {
+    border-color: #6e3e9b;
+    background-color: #6e3e9b;
+}
+
+#reset-btn {
+    color: #6e3e9b;
+    border-width: 0;
+    background-color: white;
+}
+
+#submit-btn:hover {
+    border-color: #673b91;
+    background-color: #673b91;
+}
+
+#reset-btn:hover {
+    color: white;
+    border-color: #673b91;
+    background-color: #673b91;
+}
+
+#registration {
+    z-index: 999;
+}
