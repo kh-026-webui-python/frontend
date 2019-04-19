@@ -1,0 +1,128 @@
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:focus {
+    color: #333;
+    text-shadow: none;
+    background-color: #fff;
+    border: .05rem solid #fff;
+}
+
+.homepage {
+    background: #333333;
+    height: inherit;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    background-image: url(../img/homepage-background.jpeg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.cover-container {
+    max-width: 48em;
+}
+
+.masthead {
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+
+.masthead-brand {
+    margin-bottom: 0;
+}
+
+.brand-light {
+    font-family: MuseoSansRegular;
+    color: #463853;
+}
+
+.brand-medium {
+    font-family: MuseoSansBold;
+    color: #463853;
+}
+
+.nav-masthead .nav-link {
+    padding: .25rem 0;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .9);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.nav-masthead .nav-link:hover,
+.nav-masthead .nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, .0);
+}
+
+.nav-masthead .nav-link + .nav-link {
+    margin-left: 1rem;
+}
+
+.nav-masthead .active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.nav-masthead .nav-link:hover {
+    color: #998DA0;
+    border-bottom-color: #998DA0;
+}
+
+@media (min-width: 48em) {
+    .masthead-brand {
+        float: left;
+    }
+
+    .nav-masthead {
+        float: right;
+    }
+}
+
+.cover {
+    padding: 0 1.5rem;
+    z-index: 2;
+    text-shadow: 0 .05rem .5rem rgba(0, 0, 0, .9);
+    color: white;
+}
+
+.cover .btn-lg {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+}
+
+.mastfoot {
+    z-index: 2;
+    text-shadow: 0 .05rem .5rem rgba(0, 0, 0, .9);
+    color: lightgray;
+}
+
+.span-heading {
+    background: rgba(153, 141, 160, 0.3);
+    position: relative;
+    outline: rgba(153, 141, 160, 0.3) solid 0.15rem;
+    -moz-outline-offset: -0.04em;
+}
+
+.cover .btn-lg {
+    margin-top: 1rem;
+}
