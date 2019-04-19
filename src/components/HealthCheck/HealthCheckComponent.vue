@@ -2,10 +2,12 @@
     <div>
         <div v-if="serverResponse === 'pong'">
             <div v-if="databaseResponse === 'pong'">
-                <img class="" src="../../assets/img/green.png" alt="DB and Server are okey" title="DB and Server are okey">
+                <img class="" src="../../assets/img/green.png" alt="DB and Server are okey"
+                     title="DB and Server are okey">
             </div>
             <div v-else>
-                <img class="" src="../../assets/img/yellow.png" alt="Something bad with DB" title="Something bad with DB">
+                <img class="" src="../../assets/img/yellow.png" alt="Something bad with DB"
+                     title="Something bad with DB">
             </div>
         </div>
         <div v-else>
@@ -54,7 +56,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     img {
         width: 16px;
         height: 16px;

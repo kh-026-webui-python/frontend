@@ -1,88 +1,91 @@
 <template>
-    <div id="registration">
-        <form @submit.prevent='registration' action="" method="POST" class="form">
-            <fieldset>
-                <h1>Sing up</h1>
-                <label class="" for="username">Username:</label>
-                <input type="text" name="username" value="">
-                <label class="" for="fname">First name:</label>
-                <input type="text" name="fname" value="">
-                <label class="" for="lname">Last name:</label>
-                <input type="text" name="lname" value="">
-                <label class="" for="email">Email address:</label>
-                <input type="text" name="email" value="">
-                <label class="" for="password">Password:</label>
-                <input type="text" name="password" value="">
-                <label class="" for="confirm">Password confirm:</label>
-                <input type="text" name="confirm" value="">
-            </fieldset>
-            <button type="submit">Sing up</button>
-        </form>
+    <div>
+        <Background/>
+        <div class="context">
+            <h2><span class="brand-light">soft</span><span class="brand-medium">test</span></h2>
+            <h1>Sign Up</h1>
+            <div id="registration">
+                <b-form>
+                    <label for="range-1">Username:</label>
+                    <b-form-input
+                            id="username-input"
+                            type="text"
+                            required
+                            placeholder="Enter username"
+                            size="sm"
+                    ></b-form-input>
+                    <div class="row-signin">
+                        <div style="flex-grow: 1; margin-right: 0.5rem;">
+                            <label for="range-1">First name:</label>
+                            <b-form-input
+                                    id="first-name-input"
+                                    type="text"
+                                    required
+                                    placeholder="Enter your name"
+                                    size="sm"
+                            ></b-form-input>
+                        </div>
+                        <div style="flex-grow: 1; margin-left: 0.5rem;">
+                            <label for="range-1">Last name:</label>
+                            <b-form-input
+                                    id="last-name-input"
+                                    type="text"
+                                    required
+                                    placeholder="Enter your last name"
+                                    size="sm"
+                            ></b-form-input>
+                        </div>
+                    </div>
+                    <label for="range-1">Email:</label>
+                    <b-form-input
+                            id="email-input"
+                            type="email"
+                            required
+                            placeholder="Enter your email"
+                            size="sm"
+                    ></b-form-input>
+                    <div class="row-signin">
+                        <div style="flex-grow: 1; margin-right: 0.5rem;">
+                            <label for="range-1">Password:</label>
+                            <b-form-input
+                                    id="password-input"
+                                    type="password"
+                                    required
+                                    placeholder="Enter password"
+                                    size="sm"
+                            ></b-form-input>
+                        </div>
+                        <div style="flex-grow: 1; margin-left: 0.5rem;">
+                            <label for="range-1">Confirm password:</label>
+                            <b-form-input
+                                    id="confirm-password-input"
+                                    type="password"
+                                    required
+                                    placeholder="Confirm password"
+                                    size="sm"
+                            ></b-form-input>
+                        </div>
+
+                    </div>
+                    <div class="row-signin" style="justify-content: center;">
+                        <b-button id="submit-btn" type="submit" variant="primary">Submit</b-button>
+                        <b-button id="reset-btn" type="reset" variant="danger">Reset</b-button>
+                    </div>
+                </b-form>
+            </div>
+        </div>
     </div>
+
 </template>
 
 <script>
+    import Background from '../components/Backgrounds/SignUpBackground'
     export default {
         name: 'Registration',
+        components:{ Background }
     }
 </script>
-<style>
-    * {
-        box-sizing: border-box;
-    }
+<style scoped src="../assets/css/registration.css">
 
-    h1 {
-        text-align: center;
-    }
-
-    form {
-        max-width: 400px;
-        margin: 10px auto;
-        padding: 10px 25px;
-        background: #f1f4f5;
-        border-radius: 8px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        font-size: 16px;
-        height: auto;
-        margin: 0;
-        outline: 0;
-        padding: 15px;
-        width: 100%;
-        background-color: #e8eeef;
-        color: #8a97a0;
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-        margin-bottom: 10px;
-    }
-
-    input:focus {
-        box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-        border: 1px solid rgba(81, 203, 238, 1);
-    }
-
-    fieldset {
-        border: none;
-        text-align: left;
-    }
-
-    button {
-        padding: 19px 39px 18px 39px;
-        color: #FFF;
-        background-color: #416eb7;
-        font-size: 18px;
-        text-align: center;
-        font-style: normal;
-        border-radius: 5px;
-        width: 100%;
-        border: 1px solid #6091ce;
-        border-width: 1px 1px 3px;
-        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-        margin-bottom: 10px;
-    }
 </style>
 

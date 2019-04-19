@@ -8,14 +8,17 @@
                             class="brand-medium">test</span></h2>
                     <nav class="nav nav-masthead justify-content-center">
                         <a class="nav-link active" href="#">Home</a>
-                        <router-link class="nav-link" to="/registration">Registration</router-link>
+                        <a class="nav-link" v-b-modal="'login-modal'" v-on:click="openModal" href="#">Log in</a>
+                        <router-link class="nav-link" to="/resume">Develop</router-link>
                         <a class="nav-link" href="#">Contact</a>
                     </nav>
                 </div>
             </header>
 
+            <Login/>
+
             <main role="main" class="inner cover">
-                <h2 class="cover-heading"><span class="span-heading">Try to join us</span></h2>
+                <h2 class="cover-heading css-typing "><span class="span-heading ">try to join us</span></h2>
                 <span class="lead span-heading">
                 SoftServe IT Academy offers courses for those who have basic technical knowledge.
                 The selection process takes place in three stages: a technical test, English check, interview with an expert.</span>
@@ -35,8 +38,15 @@
 </template>
 
 <script>
+    import Login from '../components/Modals/Login'
+
     export default {
         name: "HomePage",
+        components: {Login},
+        methods: {},
+        data: function () {
+            return {}
+        }
     }
 </script>
 

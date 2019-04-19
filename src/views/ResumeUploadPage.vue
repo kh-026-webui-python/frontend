@@ -27,7 +27,7 @@
 </template>
 
 <script>
-    import axios from 'axios/index'
+    import {BASE} from "../vue-axios/axios-conf";
 
     export default {
         name: "Resume",
@@ -44,30 +44,17 @@
                 this.file = this.$refs.file.files[0];
             },
             submitFile() {
-                const vm = this;
-                vm.sendRequest(); // if all okey send request
-            },
-            sendRequest() {
-                const vm = this;
-
                 let formData = new FormData();
-                formData.append('file', vm.file);
-
-                axios
-                    .post('http://127.0.0.1:8000/api/upload_resume/',
-                        formData,
-                        {
-                            headers: {
-                                'Content-Type': 'multipart/form-data'
-                            }
-                        },
-                        {crossdomain: true}
-                    )
-                    .then(response => {
-                        vm.setCompState('Success', false)
+                formData.append('file', this.file);
+                const vm = this;
+                BASE.defaults.headers['Content-Type'] = 'multipart/form-data';
+                BASE
+                    .post('api/upload_resume/', formData)
+                    .then(function (response) {
+                        console.log(response)
+                        vm.setCompState(response.data.info, false)
                     })
-                    .catch(error => {
-                        // console.log(error.response.data.error)
+                    .catch(function (error) {
                         vm.setCompState(error.response.data.error, true)
                     });
             },
@@ -79,7 +66,7 @@
 
                 setTimeout(function () {
                     vm.state = 'init'
-                }, 3000)
+                }, 2000)
             }
         }
     }
