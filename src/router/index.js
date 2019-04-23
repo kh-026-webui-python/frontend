@@ -12,11 +12,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 const authenticated = (to, from, next) => {
     if (localStorage.token) {
-        next()
+        next();
         return
     }
     next('/')
-}
+};
 
 const index = new Router({
     mode: 'history',
