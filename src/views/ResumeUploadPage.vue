@@ -51,7 +51,7 @@
                 BASE
                     .post('api/upload_resume/', formData)
                     .then(function (response) {
-                        console.log(response)
+                        console.log(response);
                         vm.setCompState(response.data.info, false)
                     })
                     .catch(function (error) {
