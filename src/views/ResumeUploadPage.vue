@@ -3,7 +3,6 @@
         <h1 class="display-2">
             You can also load your resume
         </h1>
-
         <div v-if="state === 'init'" class="input-group mb-3 container">
             <div class="input-group mb-3">
                 <div class="custom-file">
@@ -16,15 +15,12 @@
                 </div>
             </div>
         </div>
-
-        <div v-if="state === 'success'" class="alert alert-success">
+        <div v-if="state === 'response'"
+             class="alert"
+             v-bind:class="[ hasError ? 'alert-danger' : 'alert-success']"
+        >
             <p>
-                Success
-            </p>
-        </div>
-        <div v-if="state === 'fail'" class="alert alert-danger">
-            <p>
-                Failure
+                {{ message }}
             </p>
         </div>
     </div>
@@ -38,7 +34,9 @@
         data() {
             return {
                 file: '',
-                state: 'init'
+                state: 'init',
+                hasError: false,
+                message: '',
             }
         },
         methods: {
@@ -48,22 +46,28 @@
             submitFile() {
                 let formData = new FormData();
                 formData.append('file', this.file);
-
                 const vm = this;
-                BASE.defaults.headers['Content-Type'] = 'multipart/form-data'
+                BASE.defaults.headers['Content-Type'] = 'multipart/form-data';
                 BASE
-                    .post('http://127.0.0.1:8000/api/upload_resume/', formData)
-                    .then(function () {
+                    .post('api/upload_resume/', formData)
+                    .then(function (response) {
+                        console.log(response);
+                        vm.setCompState(response.data.info, false)
 
                     })
                     .catch(function (error) {
-                        vm.state = 'fail';
-
-                        setTimeout(function () {
-                            vm.state = 'init'
-                        }, 1000);
+                        vm.setCompState(error.response.data.error, true)
                     });
+            },
+            setCompState: function (message, hasError) {
+                const vm = this;
+                vm.hasError = hasError;
+                vm.message = hasError ? 'Error : ' + message : 'Success';
+                vm.state = 'response';
 
+                setTimeout(function () {
+                    vm.state = 'init'
+                }, 2000)
             }
         }
     }
