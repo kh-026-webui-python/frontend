@@ -50,7 +50,10 @@
                 BASE.defaults.headers['Content-Type'] = 'multipart/form-data';
                 BASE
                     .post('api/upload_resume/', formData)
-                    .then(function () {
+                    .then(function (response) {
+                        console.log(response);
+                        vm.setCompState(response.data.info, false)
+
                     })
                     .catch(function (error) {
                         vm.setCompState(error.response.data.error, true)
