@@ -132,9 +132,9 @@
 <script>
     import {required, email, minLength, sameAs, helpers} from 'vuelidate/lib/validators'
     import Background from '../components/Backgrounds/SignUpBackground'
-    import {BASE} from "../vue-axios/axios-conf";
+    import {BASE} from "../vue-axios/axios-conf"
 
-    const mustUpperCase = (value) => !helpers.req(value) || /(?=.*[A-Z])/.test(value)
+    const mustUpperCase = (value) => !helpers.req(value) || /(?=.*[A-Z])/.test(value);
 
     export default {
         name: 'Registration',
@@ -155,7 +155,7 @@
                     password1: this.userPassword,
                     password2: this.userConfirmPassword,
                 };
-                BASE.post('http://127.0.0.1:8000/api/auth/registration/', userData)
+                BASE.post('api/auth/registration/', userData)
                     .then(() => {
                         this.$awn.success('Successful registration.');
                         setTimeout(() => {
@@ -167,10 +167,8 @@
                             this.$awn.alert('Server temporarily unavailable');
                         } else if (error.response.status === 400) {
                             this.$awn.alert('This username is already exists.');
-                            this.$awn.alert(error.response.data.message);
-                        } else if (error.response.status === 500) {
+                        } else
                             this.$awn.info(error.response.data.message);
-                        }
                     });
             }
         },
