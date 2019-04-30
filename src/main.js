@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueAWN from 'vue-awesome-notifications'
 import index from './router'
 import App from './App.vue'
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import Vuelidate from 'vuelidate'
 
 Vue.use(Vuelidate);
