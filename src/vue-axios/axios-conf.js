@@ -6,3 +6,12 @@ export const BASE = axios.create({
         'Authorization': 'Token ' + localStorage.token
     }
 })
+
+export function getUserData() {
+    return BASE.get(`/api/profile/`);
+}
+
+export function getAuthUser() {
+    return BASE.get(`/api/auth/user/`);
+}
+

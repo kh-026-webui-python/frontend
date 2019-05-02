@@ -59,27 +59,28 @@
             hideModal() {
                 this.$refs['login-modal'].hide()
             },
-            login(){
-            BASE.post('/api/auth/login/', { username: this.username, password: this.password })
+            login() {
+                BASE.post('/api/auth/login/', {username: this.username, password: this.password})
                     .then(request => this.loginSuccessful(request))
                     .catch(() => this.loginFailed())
 
             },
-            loginSuccessful (req) {
+            loginSuccessful(req) {
                 if (!req.data.key) {
-                    this.loginFailed()
+                    this.loginFailed();
                     return
                 }
-
-                localStorage.token = req.data.key
-                this.error = false
+                localStorage.token = req.data.key;
+                localStorage.username = JSON.parse(req.config.data).username
+                this.error = false;
 
                 this.$router.replace(this.$route.query.redirect || '/resume')
             },
 
-            loginFailed () {
-                this.error = 'Login failed!'
-                delete localStorage.token
+            loginFailed() {
+                this.error = 'Login failed!';
+                delete localStorage.token;
+                delete localStorage.username;
             }
         }
     }

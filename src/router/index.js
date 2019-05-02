@@ -26,7 +26,7 @@ const index = new Router({
         {path: '/registration', component: Registration,},
         {path: '/resume', component: Resume, beforeEnter: authenticated,},
         {path: '/file_registration', component: FileRegistration, beforeEnter: authenticated,},
-        {path: '/profile', component: Profile, beforeEnter: authenticated,},
+        {path: '/profile', component: Profile, name: 'profile', beforeEnter: authenticated,},
         {path: '*', redirect: '/'},
     ]
 });

@@ -14,7 +14,9 @@
                         <img src="../../assets/img/user-icon.svg" style="height:2rem;"
                              v-b-tooltip.hover title="User">
                     </template>
-                    <b-dropdown-item href="#">Profile</b-dropdown-item>
+                    <h6 class="text-muted text-center">{{userName}}</h6>
+                    <hr>
+                    <b-dropdown-item :to="{name:'profile'}">Profile</b-dropdown-item>
                     <b-dropdown-item href="#" v-on:click="logout">Sign Out</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
@@ -25,26 +27,37 @@
 
 <script>
     import HealthCheckComponent from '../HealthCheck/HealthCheckComponent'
-    import {BASE} from "../../vue-axios/axios-conf";
+    import {BASE, getAuthUser} from "../../vue-axios/axios-conf";
+
 
     export default {
 
         name: "NavigationBar",
         components: {HealthCheckComponent},
-        data(){
-
+        data() {
+            return {
+                userName: '',
+            }
+        },
+        created() {
+            this.fetchUserName();
         },
         methods: {
             logout() {
                 BASE.post('/api/auth/logout/').then(request => this.logoutSuccessful(request))
             },
-            logoutSuccessful (req) {
+            logoutSuccessful(req) {
                 if (req.data.detail !== "Successfully logged out.") {
                     return
                 }
                 this.$router.replace(this.$route.query.redirect || '/');
                 localStorage.removeItem('token');
             },
+            fetchUserName() {
+                getAuthUser().then((response) => {
+                    this.userName = response.data.username;
+                })
+            }
         }
     }
 </script>

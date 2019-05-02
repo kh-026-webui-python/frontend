@@ -96,7 +96,7 @@
                                 <label for="range-1">Confirm password:</label>
                                 <b-form-input
                                         id="userConfirmPassword"
-                                        type="text"
+                                        type="password"
                                         required
                                         placeholder="Confirm password"
                                         size="sm"
@@ -157,10 +157,10 @@
                 };
                 BASE.post('api/auth/registration/', userData)
                     .then(() => {
-                        this.$awn.success('Successful registration.');
+                        this.$awn.success('Successful registration. Please login');
                         setTimeout(() => {
-                            this.$router.replace(this.$route.query.redirect || '/resume')
-                        }, 2000)
+                            this.$router.replace(this.$route.query.redirect || '/')
+                        }, 3000)
                     })
                     .catch((error) => {
                         if (error.response === undefined) {

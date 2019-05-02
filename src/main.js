@@ -10,7 +10,7 @@ Vue.use(Vuelidate);
 const options = {
     icons: {enabled: false},
     position: 'top-left',
-    duration: 2000,
+    duration: 3000,
 };
 Vue.use(VueAWN, options)
 require("vue-awesome-notifications/dist/styles/style.css")
