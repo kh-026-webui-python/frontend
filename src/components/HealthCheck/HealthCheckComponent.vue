@@ -31,8 +31,8 @@
         },
         methods: {
             ping: function (comp) {
-                //var time = Date.now();
-                //var date = new Date(time);
+                //var timer = Date.now();
+                //var date = new Date(timer);
                 //console.log(date.toString());
                 axios
                     .get('http://127.0.0.1:8000/api/health_check/', {crossdomain: true})

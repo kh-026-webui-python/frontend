@@ -8,6 +8,7 @@ import FileRegistration from '../views/ApplicantsRegistrationPage'
 import BootstrapVue from 'bootstrap-vue/src/index'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import QuizPage from "../views/QuizPage";
 
 
 const authenticated = (to, from, next) => {
@@ -23,8 +24,9 @@ const index = new Router({
     routes: [
         {path: '/', component: HomePage, },
         {path: '/registration', component: Registration, },
-        {path: '/resume', component: Resume,  beforeEnter: authenticated,},
-        {path: '/file_registration', component: FileRegistration,  beforeEnter: authenticated,},
+        {path: '/resume', component: Resume,  },
+        {path: '/file_registration', component: FileRegistration,},
+        {path: '/quiz', component: QuizPage},
         {path: '*', redirect: '/'},
     ]
 });
