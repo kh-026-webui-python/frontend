@@ -5,6 +5,7 @@ import HomePage from '../views/HomePage'
 import Registration from '../views/RegistrationPage'
 import Resume from '../views/ResumeUploadPage'
 import FileRegistration from '../views/ApplicantsRegistrationPage'
+import TestPage from '../views/TestPage'
 import BootstrapVue from 'bootstrap-vue/src/index'
 import Courses from '../views/Courses'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -29,6 +30,7 @@ const index = new Router({
         {path: '/resume', component: Resume,  beforeEnter: authenticated,},
         {path: '/file_registration', component: FileRegistration,  beforeEnter: authenticated,},
         {path: '/courses', component: Courses},
+        {path: '/test', component: TestPage,  },
         {path: '*', redirect: '/'},
     ]
 });

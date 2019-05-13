@@ -4,10 +4,9 @@
         <p>Choose only one correct answer</p>
         <div class="answers-container" :id="quizController.currentQuestionId">
             <p>{{question.description}}</p>
-        <div  align="left"  v-for="(answer, index) in quizController.questions[quizController.currentQuestionId].answers">
-        <input type="radio"   name="answer" :value="answer" v-model="question.chosenAnswer">
-        <label :for="index"> {{answer}}</label>
-        <br>
+        <div  align="left"  v-for="answer in quizController.questions[quizController.currentQuestionId].answers">
+            <b-form-radio name="answer" :value="answer" v-model="question.chosenAnswer">{{answer}}</b-form-radio>
+
         </div>
         </div>
 
