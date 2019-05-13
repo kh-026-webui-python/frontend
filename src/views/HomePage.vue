@@ -1,6 +1,6 @@
 <template>
     <div class="homepage">
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column position">
             <div class="background-image"></div>
             <header class="masthead mb-auto">
                 <div class="inner">

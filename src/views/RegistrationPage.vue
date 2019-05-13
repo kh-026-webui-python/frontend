@@ -71,7 +71,7 @@
                                 <label for="range-1">Password:</label>
                                 <b-form-input
                                         id="userPassword"
-                                        type="text"
+                                        type="password"
                                         placeholder="Enter password"
                                         size="sm"
                                         v-model="userPassword"
