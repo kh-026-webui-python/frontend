@@ -18,6 +18,7 @@
         },
 
         watch: {
+            // eslint-disable-next-line
             '$route'(to, from) {
                 this.isFullscreen = (this.$route.path === '/' || this.$route.path === '/registration');
             }
@@ -39,7 +40,6 @@
     }
 
     #app {
-        font-family: MuseoSansBold;
         text-align: center;
         height: inherit;
     }

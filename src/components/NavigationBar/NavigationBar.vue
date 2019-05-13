@@ -7,6 +7,7 @@
             <b-navbar-nav>
                 <b-nav-item to="/resume">Resume</b-nav-item>
                 <b-nav-item to="/file_registration">Registration by file</b-nav-item>
+                <b-nav-item to="/courses">Courses</b-nav-item>
             </b-navbar-nav>
             <b-navbar-nav class="ml-auto">
                 <b-nav-item-dropdown right>
@@ -88,6 +89,5 @@
     #main-navbar {
         box-shadow: 0 1px 0 0 rgba(142, 81, 199, 0.05);
         background: white !important;
-
     }
 </style>
