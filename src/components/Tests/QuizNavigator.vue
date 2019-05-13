@@ -2,7 +2,7 @@
        <div class="quiz-navigator">
            <div class="timer">
            <h1 >Time</h1>
-               <h4>25:00</h4>
+                <Timer/>
            </div>
            <h1>Questions</h1>
            <div class="question-navigator">
@@ -24,8 +24,10 @@
 </template>
 
 <script>
+    import Timer from  "./Timer"
     export default {
         name: 'QuizNavigator',
+        components: {Timer},
         props:['quizController', 'timer'],
         methods: {
             getTaskVariant: function (quizId) {

@@ -1,5 +1,7 @@
 <template>
-    <div><p>{{minutes}}:{{seconds}}</p></div>
+    <div>
+        <p>{{minutes}}:{{seconds}}</p>
+    </div>
 
 </template>
 
@@ -10,10 +12,13 @@
             return {
                 message: 'Let the countdown begin!!',
                 totalTime: (25 * 60),
-                timerRunning: false,
+                timerRunning: true,
                 timerPaused: false,
                 interval: null
             }
+        },
+        mounted() {
+            this.timerRun();
         },
         computed: {
             time: function () {
