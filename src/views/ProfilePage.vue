@@ -142,7 +142,7 @@
 <script>
 
     import NavigationBar from "../components/NavigationBar/NavigationBar";
-    import {patchUserData, getUserData, BASE} from "../vue-axios/axios-conf";
+    import {getUserData, BASE} from "../vue-axios/axios-conf";
 
 
     export default {
@@ -214,19 +214,19 @@
                 formData.set('first_name', this.userFirstName);
                 formData.set('last_name', this.userLastName);
                 formData.set('phone_number', this.userPhone);
-                formData.set('choices_english', this.selectedEnglish);
+                // formData.set('choices_english', this.selectedEnglish);
                 formData.set('birth_date', this.userBirthday);
-                formData.set('choices_location', this.selectedLocation);
-                // for (const [key, value] of formData.entries()) {
-                //     jsonObject[key] = value
-                // }
+                // formData.set('choices_location', this.selectedLocation);
                 for (const [key, value] of formData.entries()) {
-                    if (key === 'first_name' || key === 'last_name') {
-                        jsonObject[key] = value;
-                        continue;
-                    }
-                    jsonObject['profile'][key] = value
+                    jsonObject[key] = value
                 }
+                // for (const [key, value] of formData.entries()) {
+                //     if (key === 'first_name' || key === 'last_name') {
+                //         jsonObject[key] = value;
+                //         continue;
+                //     }
+                //     jsonObject['profile'][key] = value
+                // }
                 console.log(formData)
                 BASE.patch(`/api/profile/`, jsonObject)
                     .then((response) => {

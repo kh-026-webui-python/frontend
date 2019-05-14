@@ -40,6 +40,7 @@
     }
 
     #app {
+        font-family: MuseoSansBold;
         text-align: center;
         height: inherit;
     }
