@@ -1,7 +1,7 @@
 <template>
     <div class="test-navigator">
         <h1>Time</h1>
-        <h1 class="timer">{{testController.time}}</h1>
+        <Timer/>
         <h1>Questions</h1>
         <div class="question-navigator">
             <b-button
@@ -23,8 +23,10 @@
 </template>
 
 <script>
+    import Timer from './Timer'
     export default {
         name: "TestNavigator",
+        components: {Timer},
         props:[ 'testController'],
         methods:{
             getTaskVariant: function (taskId) {

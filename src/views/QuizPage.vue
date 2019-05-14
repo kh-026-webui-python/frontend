@@ -2,7 +2,6 @@
     <div class="quiz-page">
         <QuizNavigator :quiz-controller="this.controller"/>
         <QuizTask :quiz-controller="this.controller"/>
-        <QuizNavigator :timer="this.controller.timer"/>
 
     </div>
 </template>
@@ -11,12 +10,11 @@
 
     import QuizTask from '../components/Tests/QuizTask'
     import QuizNavigator from '../components/Tests/QuizNavigator'
-    import Timer from '../components/Tests/Timer'
     import {QuizController} from '../utils/QuizController.js'
 
     export default {
         name: "QuizPage",
-        components: {QuizNavigator, QuizTask, Timer},
+        components: {QuizNavigator, QuizTask},
         data: function () {
             return {
                 controller: new QuizController(

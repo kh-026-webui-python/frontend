@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>{{minutes}}:{{seconds}}</p>
+        <h2>{{minutes}}:{{seconds}}</h2>
     </div>
 
 </template>
@@ -10,10 +10,8 @@
         name: "Timer",
         data: function(){
             return {
-                message: 'Let the countdown begin!!',
                 totalTime: (25 * 60),
                 timerRunning: true,
-                timerPaused: false,
                 interval: null
             }
         },
@@ -21,9 +19,6 @@
             this.timerRun();
         },
         computed: {
-            time: function () {
-                return this.minutes + " : " + this.seconds;
-            },
             minutes: function () {
                 var min = Math.floor(this.totalTime / 60);
                 return min >= 10 ? min : '0' + min;
@@ -36,14 +31,8 @@
         methods: {
             timerRun() {
                 this.timerRunning = true;
-                this.message = 'Greatness is within sight!!!';
                 this.interval = setInterval(this.countdownTimer, 1000);
                 console.log(this.totalTime);
-            },
-            timerPause() {
-                this.message = 'Never quit, keep going!!';
-                this.timerRunning = false;
-                clearInterval(this.interval);
             },
             countdownTimer() {
                 if (this.timerRunning == true) {

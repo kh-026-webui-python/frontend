@@ -10,9 +10,10 @@
     import CodeTask from '../components/Tests/CodeTask'
     import {TestController} from '../utils/TestController.js'
 
+
     export default {
         name: "TestPage",
-        components: {TestNavigator, CodeTask},
+        components: { TestNavigator, CodeTask},
         data: function () {
             return {
                 controller: new TestController(
