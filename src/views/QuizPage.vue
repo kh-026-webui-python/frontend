@@ -11,6 +11,7 @@
     import QuizTask from '../components/Tests/QuizTask'
     import QuizNavigator from '../components/Tests/QuizNavigator'
     import {QuizController} from '../utils/QuizController.js'
+    import {BASE} from "../vue-axios/axios-conf"
 
     export default {
         name: "QuizPage",
@@ -18,28 +19,19 @@
         data: function () {
             return {
                 controller: new QuizController(
-                  ' ', {
-                        1: {
-                            id: 1,
-                            name: 'Question 1',
-                            description: "Which frameworks aren't in JS?",
-                            answers: ['Vue', 'React', 'Django', 'jQuery'],
-                            chosenAnswer: null
-
-                        },
-                        2: {
-                            id: 2,
-                            name: 'Question 2',
-                            description: "What data type aren't in JS?",
-                            answers: ['Char', 'Boolean', 'Number', 'String'],
-                            chosenAnswer: null
-                        }
-                    },
+                    '', {},
                     1),
 
             }
 
+
         },
+        mounted() {
+            BASE.get('/api/quiz/JS')
+                .then(response => {
+                    this.controller.questions = response.data
+                })
+        }
 
     }
 </script>

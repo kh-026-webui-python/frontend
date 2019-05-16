@@ -4,7 +4,6 @@ export class QuizController {
         this.questions=questions;
         this.currentQuestionId=currentQuestionId;
         this.saved = {};
-        // this.timer.timerRun();
     }
 
 
